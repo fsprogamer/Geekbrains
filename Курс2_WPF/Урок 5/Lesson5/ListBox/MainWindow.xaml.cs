@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 
 namespace ListBox
@@ -20,6 +21,8 @@ namespace ListBox
             items.Add(new Employee() { Id = 2, Name = "Petya", Age = 25, Salary = 6000 });
             items.Add(new Employee() { Id = 3, Name = "Kolya", Age = 23, Salary = 8000 });
             lbEmployee.ItemsSource = items;
+
+            lbEmployee.Items.SortDescriptions.Add(new SortDescription("Age", ListSortDirection.Ascending));
         }
 
         private void lbEmployee_Selected(object sender, RoutedEventArgs e)

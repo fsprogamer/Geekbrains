@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 
 namespace GridView
@@ -16,6 +17,9 @@ namespace GridView
             items.Add(new Employee() { Name = "Коля", Age = 39, Salary = 45000 });
             items.Add(new Employee() { Name = "Иван", Age = 7, Salary = 33000 });
             lvEmployee.ItemsSource = items;
+
+            lvEmployee.Items.SortDescriptions.Add(new SortDescription("Salary", ListSortDirection.Ascending));
+
         }
     }
     public class Employee
