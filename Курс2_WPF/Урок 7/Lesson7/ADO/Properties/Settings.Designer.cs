@@ -33,5 +33,16 @@ namespace ADO.Properties {
                 return ((string)(this["ArtistConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Test7;Integrated Security=True" +
+            ";Pooling=False")]
+        public string Test7ConnectionString {
+            get {
+                return ((string)(this["Test7ConnectionString"]));
+            }
+        }
     }
 }
