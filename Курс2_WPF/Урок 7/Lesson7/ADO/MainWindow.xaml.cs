@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Data;
 
 namespace ADO
 {
@@ -12,7 +11,7 @@ namespace ADO
     {
         SqlConnection connection;
         SqlDataAdapter adapter;
-        DataTable dt;
+        DataTable dt;    
         public MainWindow()
         {
             InitializeComponent();
@@ -24,9 +23,9 @@ namespace ADO
             connection = new SqlConnection(connectionString);
             adapter = new SqlDataAdapter();
 
-            SqlCommand command = new SqlCommand("SELECT * FROM People", connection);
+            SqlCommand command = new SqlCommand("SELECT ID, FIO, Birthday, Email, Phone FROM People", connection);
             adapter.SelectCommand = command;
-            // insert
+            //insert
             command = new SqlCommand(@"INSERT INTO People (FIO, Birthday, Email, Phone) VALUES (@FIO, @Birthday, @Email, @Phone); SET @ID = @@IDENTITY;", connection);
             command.Parameters.Add("@FIO", SqlDbType.NVarChar, -1, "FIO");
             command.Parameters.Add("@Birthday", SqlDbType.NVarChar, -1, "Birthday");
@@ -36,23 +35,26 @@ namespace ADO
             param.Direction = ParameterDirection.Output;
             adapter.InsertCommand = command;
             // update
-            command = new SqlCommand(@"UPDATE People SET FIO = @FIO, Birthday = @Birthday WHERE ID = @ID", connection);
+            command = new SqlCommand(@"UPDATE People SET FIO = @FIO, Birthday = @Birthday, Email = @Email, Phone = @Phone WHERE ID = @ID", connection);
             command.Parameters.Add("@FIO", SqlDbType.NVarChar, -1, "FIO");
             command.Parameters.Add("@Birthday", SqlDbType.NVarChar, -1, "Birthday");
+            command.Parameters.Add("@Email", SqlDbType.NVarChar, 100, "Email");
+            command.Parameters.Add("@Phone", SqlDbType.NVarChar, -1, "Phone");
             param = command.Parameters.Add("@ID", SqlDbType.Int, 0, "ID");
             param.SourceVersion = DataRowVersion.Original;
             adapter.UpdateCommand = command;
-            // delete
+            //delete
             command = new SqlCommand("DELETE FROM People WHERE ID = @ID", connection);
             param = command.Parameters.Add("@ID", SqlDbType.Int, 0, "ID");
             param.SourceVersion = DataRowVersion.Original;
+            adapter.DeleteCommand = command;
 
             dt = new DataTable();
             adapter.Fill(dt);
 
             peopleDataGrid.DataContext = dt.DefaultView;            
         }
-        //http://csharp.net-informations.com/dataview/add-new-dataview.htm
+        
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             // добавим новую строку
@@ -85,7 +87,10 @@ namespace ADO
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-
+            DataRowView newRow = (DataRowView)peopleDataGrid.SelectedItem;
+            
+            newRow.Row.Delete();
+            adapter.Update(dt);
         }
     }
 }

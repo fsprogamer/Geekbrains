@@ -17,7 +17,10 @@ namespace ADO
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            fIOTextBox.Text = resultRow["FIO"].ToString();
+            birthdayTextBox.Text = resultRow["Birthday"].ToString();
+            emailTextBox.Text = resultRow["Email"].ToString();
+            phoneTextBox.Text = resultRow["Phone"].ToString();
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
