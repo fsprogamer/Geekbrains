@@ -14,7 +14,6 @@ namespace ADO
             InitializeComponent();
             resultRow = dataRow;
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             fIOTextBox.Text = resultRow["FIO"].ToString();
@@ -22,7 +21,6 @@ namespace ADO
             emailTextBox.Text = resultRow["Email"].ToString();
             phoneTextBox.Text = resultRow["Phone"].ToString();
         }
-
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             resultRow["FIO"] = fIOTextBox.Text;
@@ -31,7 +29,6 @@ namespace ADO
             resultRow["Phone"] = phoneTextBox.Text;
             DialogResult = true;
         }
-
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

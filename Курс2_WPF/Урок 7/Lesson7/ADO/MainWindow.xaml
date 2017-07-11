@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:data="clr-namespace:System.Data;assembly=System.Data"
         mc:Ignorable="d"
-        Title="MainWindow" Loaded="Window_Loaded" Width="600" MaxWidth="600" MinHeight="300" MinWidth="600">
+        Title="MainWindow" Loaded="Window_Loaded" Width="510" MaxWidth="510" MinHeight="300" MinWidth="510">
     <Window.Resources>
     </Window.Resources>
     <Grid HorizontalAlignment="Left">
