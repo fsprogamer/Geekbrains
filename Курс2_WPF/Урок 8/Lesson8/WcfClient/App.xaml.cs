@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ASMXClient
+namespace WcfClient
 {
     /// <summary>
     /// Interaction logic for App.xaml
