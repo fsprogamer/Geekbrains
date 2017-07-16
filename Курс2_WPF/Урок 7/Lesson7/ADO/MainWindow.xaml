@@ -18,7 +18,7 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="peopleDataGrid" Grid.ColumnSpan="3" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10" HorizontalAlignment="Center" >
+        <DataGrid x:Name="peopleDataGrid" Grid.ColumnSpan="3" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10" HorizontalAlignment="Center" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" IsReadOnly="True" Width="Auto"/>
                 <DataGridTextColumn x:Name="fIOColumn" Binding="{Binding FIO}" Header="ФИО" Width="Auto"/>
