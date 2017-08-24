@@ -23,22 +23,22 @@ namespace WindowRelation
             childWindow.Show();
             childWindow.ShowViewModel();
 
-            //foreach (Window window in this.OwnedWindows)
-            //{
-            //    window.Background = new SolidColorBrush(Colors.Aquamarine);
-
-            //    if (window is ChildWindow)
-            //        window.Title = "Новый заголовок";
-            //}
-
-            foreach (Window window in App.Current.Windows)
+            foreach (Window window in this.OwnedWindows)
             {
                 window.Background = new SolidColorBrush(Colors.Aquamarine);
 
-                // если окно - объект TaskWindow
                 if (window is ChildWindow)
-                    window.Title = "Новый заголовок!";
+                    window.Title = "Новый заголовок";
             }
+
+            //foreach (Window window in App.Current.Windows)
+            //{
+            //    window.Background = new SolidColorBrush(Colors.Aquamarine);
+
+            //    // если окно - объект TaskWindow
+            //    if (window is ChildWindow)
+            //        window.Title = "Новый заголовок!";
+            //}
         }
     }
 }

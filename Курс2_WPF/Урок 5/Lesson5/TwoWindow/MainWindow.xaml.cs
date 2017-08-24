@@ -14,7 +14,7 @@ namespace TwoWindow
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            SecondWindow secondWindow = new SecondWindow();
+            SecondWindow secondWindow = new SecondWindow();            
             secondWindow.Show();
         }
     }
