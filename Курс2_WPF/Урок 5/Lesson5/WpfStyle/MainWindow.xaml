@@ -11,9 +11,26 @@
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="FontSize" Value="20" />
         </Style>
+        <Style x:Key="MyButtonStyle">
+            <Setter Property="Control.FontFamily" Value="Calibri"></Setter>
+            <Setter Property="Control.FontSize" Value="18"></Setter>
+            <Setter Property="Control.FontWeight" Value="Bold"></Setter>
+            <Setter Property="Control.Padding" Value="5"></Setter>
+            <Setter Property="Control.Margin" Value="5"></Setter>
+        </Style>
+        <Style x:Key="TiledStyle" BasedOn="{StaticResource MyButtonStyle}">
+            <Setter Property="Control.Background">
+                <Setter.Value>
+                    <ImageBrush TileMode="Tile" ViewportUnits="Absolute"
+                                Viewport="0 0 32 32" 
+                                Opacity="0.3"></ImageBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <StackPanel Margin="10">
         <TextBlock Style="{StaticResource HeaderStyle}">Заголовок 1</TextBlock>
         <TextBlock>Заголовок 2</TextBlock>
+        <Button x:Name="button" Content="Button" Style="{StaticResource TiledStyle}"/>
     </StackPanel>
 </Window>
