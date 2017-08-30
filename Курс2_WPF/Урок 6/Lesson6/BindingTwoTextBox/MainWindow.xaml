@@ -1,0 +1,18 @@
+﻿<Window x:Class="BindingTwoTextBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BindingTwoTextBox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBox Name="firstValue" Text="{Binding ElementName=secondValue, Path=Text }" HorizontalAlignment="Stretch" />
+            <WrapPanel Margin="0,10" Width="auto">
+                <!--TextBlock Text="Текст: " FontWeight="Bold" /-->
+                <TextBox Name="secondValue" Text="{Binding ElementName=firstValue, Path=Text }" HorizontalAlignment="Stretch" Width="496" />
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>
