@@ -17,6 +17,7 @@ namespace CellTemplate
                 items.Add(new Employee() { Name = "Иван", Age = 7, Salary = 33000 });
                 lvEmployee.ItemsSource = items;
             }
+
         }
         public class Employee
         {
@@ -25,6 +26,11 @@ namespace CellTemplate
             public int Age { get; set; }
 
             public int Salary { get; set; }
+
+            public string DisplayedImagePath
+        {
+                get { return @"..\\..\1.png"; }
+            }
         }
 
 }

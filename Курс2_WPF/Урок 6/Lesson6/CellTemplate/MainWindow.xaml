@@ -19,6 +19,15 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    
+                    <GridViewColumn Header="Изображение">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image x:Name="image" Width="50" Height="50" Source="{Binding DisplayedImagePath}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>
